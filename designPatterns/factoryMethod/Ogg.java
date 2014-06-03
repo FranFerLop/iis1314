@@ -1,7 +1,8 @@
 package iis1314.designPatterns.factoryMethod;
 
 public class Ogg implements IMediaFile{
-	String sonido;
+	private String sonido;
+	
 	public Ogg (){
 		sonido = "ogg";
 	}
@@ -9,7 +10,8 @@ public class Ogg implements IMediaFile{
 	@Override
 	public String play() {
 		return "playing "+sonido;
-		
 	}
-
+	public String getSonido(){
+		return sonido;
+	}
 }

@@ -1,7 +1,7 @@
 package iis1314.designPatterns.factoryMethod;
 
 public class Wav implements IMediaFile {
-	String sonido;
+	private String sonido;
 
 	public Wav() {
 		sonido = "Wav";
@@ -10,7 +10,8 @@ public class Wav implements IMediaFile {
 	@Override
 	public String play() {
 		return "playing " + sonido;
-
 	}
-
+	public String getSonido(){
+		return sonido;
+	}
 }

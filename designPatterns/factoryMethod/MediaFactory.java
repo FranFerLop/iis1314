@@ -1,20 +1,30 @@
 package iis1314.designPatterns.factoryMethod;
 
+/**
+ * 
+ * @author Francisco
+ * 
+ */
+public class MediaFactory implements IFactory {
 
-public class MediaFactory implements IFactory{
-	
-	@Override
+	/**
+	 * @return devuelve el IMediaFile creado a partir del parametro 
+	 */
 	public IMediaFile createMedia(String tipoFile) {
-		IMediaFile cont = null;
 		
-		if(tipoFile.equalsIgnoreCase("mp3")){
-			cont = new Mp3();
-		}else if(tipoFile.equalsIgnoreCase("wav")){
-			cont = new Wav();
-		}else if(tipoFile.equalsIgnoreCase("ogg")){
-			cont = new Ogg();
+		IMediaFile file = null;
+
+		if (tipoFile.equalsIgnoreCase("mp3")) {
+			file = new Mp3();
+		} else if (tipoFile.equalsIgnoreCase("wav")) {
+			file = new Wav();
+		} else if (tipoFile.equalsIgnoreCase("ogg")) {
+			file = new Ogg();
+		} else {
+			throw new RuntimeException("Error al crear el audio: " + tipoFile
+					+ " no es un formato correcto.");
 		}
-		return cont;
+		return file;
 	}
 
 }
